@@ -10,7 +10,22 @@
 </style>
 
 <template>
-  <view>
+  <view class="container">
+    <view class="title">Todo</view>
+    <view class="add">
+      <input placeholder="Add todo" type="text" confirm-type="send" />
+    </view>
+    <view class="list">
+      <view class="item">Star Tina.js</view>
+      <view class="item">Star Tina-Redux</view>
+      <view class="item">Build a mini-program with Tina.js</view>
+      <view class="item done">Add to Showcase of Tina.js</view>
+      <view class="filter">
+        <view class="option selected">All</view>
+        <view class="option">Active</view>
+        <view class="option">Completed</view>
+      </view>
+    </view>
     <item />
   </view>
 </template>
@@ -21,3 +36,65 @@ import { Page } from '@tinajs/tina'
 Page.define({
 })
 </script>
+
+<style lang="less">
+.container {
+  padding: 28px;
+  color: #333;
+  font-size: 14px;
+}
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 1em 0;
+}
+.add {
+  margin: 28px 0;
+  input {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 4px;
+  }
+}
+.list {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  .item {
+    padding: 1em;
+    line-height: 1.5em;
+    border-bottom: 1px solid #ccc;
+    background-color: #fbfbfb;
+    &:nth-child(2n) {
+      background-color: #fefefe;
+    }
+    &:active {
+      background-color: #f2f2f2;
+      color: #999;
+    }
+    &.done {
+      color: #ccc;
+      text-decoration: line-through;
+    }
+  }
+  .filter {
+    padding: 1em 0;
+    background-color: #eee;
+    color: #333;
+    text-align: center;
+    .option {
+      display: inline-block;
+      margin: 0 0.5em;
+      padding: 0 0.5em;
+      line-height: 1.5em;
+      &:last-child {
+        border-right: none;
+      }
+      &.selected {
+        border:1px solid #ccc;
+        background-color:#fefefe;
+      }
+    }
+  }
+}
+</style>

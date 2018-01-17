@@ -10,3 +10,10 @@
 App({
 })
 </script>
+
+<style>
+page {
+  font-size: 14px;
+  font-family: Helvetica, serif;
+}
+</style>
