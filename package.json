@@ -5,6 +5,9 @@
   "main": "dist/tina-redux.js",
   "author": "yelo",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
