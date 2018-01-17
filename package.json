@@ -1,0 +1,43 @@
+{
+  "name": "@tinajs/tina-redux",
+  "version": "0.0.1",
+  "description": "Tina.js bindings for Redux",
+  "main": "dist/tina-redux.js",
+  "author": "yelo",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "tinajs/tina-redux",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/tinajs/tina-redux/issues"
+  },
+  "homepage": "https://github.com/tinajs/tina-redux#readme",
+  "scripts": {
+    "start": "rollup -c -w",
+    "clean": "rimraf ./dist",
+    "prebuild": "run-s clean",
+    "build": "run-s build:*",
+    "build:rollup": "rollup -c",
+    "build:minify": "uglifyjs --compress --mangle --output ./dist/tina-redux.min.js -- ./dist/tina-redux.js",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "deepmerge": "^2.0.1",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.51.5",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "uglify-js": "^3.2.1"
+  },
+  "dependencies": {}
+}
