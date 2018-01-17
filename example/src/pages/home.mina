@@ -1,0 +1,23 @@
+<config>
+{
+  "usingComponents": {
+    "item": "components/item.mina"
+  }
+}
+</config>
+
+<style>
+</style>
+
+<template>
+  <view>
+    <item />
+  </view>
+</template>
+
+<script>
+import { Page } from '@tinajs/tina'
+
+Page.define({
+})
+</script>
