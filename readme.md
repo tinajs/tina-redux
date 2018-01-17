@@ -10,5 +10,8 @@
 npm i --save @tinajs/tina-redux
 ```
 
+## Example
+[See ./example](example/README.md)
+
 ## License
 MIT &copy; [yelo](https://github.com/tinajs), 2017 - present
