@@ -21,8 +21,6 @@
 <script>
 import { Page } from '@tinajs/tina'
 import clone from 'clone'
-import { addTodo, setVisibilityFilter, toggleTodo, clearCompletedTodos } from '../actions'
-import store from '../store'
 
 const FILTERS = [
   { key: 'SHOW_ALL', text: 'All' },
@@ -30,57 +28,72 @@ const FILTERS = [
   { key: 'SHOW_COMPLETED', text: 'Completed' },
 ]
 
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case 'SHOW_COMPLETED':
-      return todos.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed)
-    case 'SHOW_ALL':
-    default:
-      return todos
-  }
-}
-
-function mapState (state) {
-  return {
-    todos: state.todos,
-    filter: state.visibilityFilter,
-    filtered: getVisibleTodos(state.todos, state.visibilityFilter),
-  }
-}
-function mapDispatch (dispatch) {
-  return {
-    toggleTodo (event) {
-      dispatch(toggleTodo(event.currentTarget.dataset.id))
-    },
-    tapFilter (event) {
-      dispatch(setVisibilityFilter(event.currentTarget.dataset.filter))
-    },
-    addTodo (event) {
-      dispatch(addTodo(event.detail.value))
-      this.setData({
-        input: '',
-      })
-    },
-  }
-}
-
 Page.define({
-  mixins: [store.connect(mapState, mapDispatch)],
   data: {
     FILTERS,
+    filter: 'SHOW_ALL',
+    todos: [
+      { id: 1, text: 'Star Tina.js', completed: false },
+      { id: 2, text: 'Star Tina-Redux', completed: true },
+      { id: 3, text: 'Build a mini-program with Tina.js', completed: false },
+      { id: 4, text: 'Add to Showcase of Tina.js', completed: false },
+    ],
     input: '',
   },
+  compute ({ filter, todos }) {
+    let filtered = []
+    switch (filter) {
+      case 'SHOW_ALL':
+        filtered = todos
+        break
+      case 'SHOW_ACTIVE':
+        filtered = todos.filter((t) => !t.completed)
+        break
+      case 'SHOW_COMPLETED':
+        filtered = todos.filter((t) => t.completed)
+        break
+    }
+    return {
+      filtered,
+    }
+  },
   methods: {
+    toggleTodo (event) {
+      let { id } = event.currentTarget.dataset
+      let todos = clone(this.data.todos)
+      let todo = todos.find((t) => t.id === id)
+      todo.completed = !todo.completed
+      this.setData({
+        todos: todos,
+      })
+    },
+    tapFilter (event) {
+      let { filter } = event.currentTarget.dataset
+      this.setData({
+        filter,
+      })
+    },
     input (e) {
       this.setData({
         input: e.detail.value,
       })
     },
+    addTodo (event) {
+      let { value } = event.detail
+      this.setData({
+        todos: clone(this.data.todos).concat({
+          id: Date.now(),
+          text: value,
+          completed: false,
+        }),
+        input: '',
+      })
+    },
     clear () {
-      this.$dispatch({ type: 'CLEAR_COMPLETED_TODOS' })
-    }
+      this.setData({
+        todos: clone(this.data.todos).filter((t) => !t.completed),
+      })
+    },
   },
 })
 </script>

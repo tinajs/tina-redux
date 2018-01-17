@@ -22,6 +22,8 @@ const todos = (state = intialState, action) => {
           ? {...todo, completed: !todo.completed}
           : todo
       )
+    case 'CLEAR_COMPLETED_TODOS':
+      return state.filter(todo => !todo.completed)
     default:
       return state
   }

@@ -1,8 +1,9 @@
 import { createStore } from 'redux'
 import todoApp from './reducers'
+import TinaRedux from '../../src'
 
-let store = createStore(todoApp)
+let reduxStore = createStore(todoApp)
 
-// TODO
+let store = new TinaRedux(reduxStore)
 
 export default store
