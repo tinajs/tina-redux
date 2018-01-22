@@ -1,5 +1,8 @@
 <config>
 {
+  "window": {
+    "navigationBarTitleText": "TodoMVC Lite"
+  },
   "pages": [
     "pages/home.mina"
   ]

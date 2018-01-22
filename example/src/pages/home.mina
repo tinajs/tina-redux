@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view class="title">Todo</view>
+    <view class="title">Todos</view>
     <view class="add">
       <input value="{{ input }}" placeholder="What needs to be done?" type="text" confirm-type="send" bindinput="input" bindconfirm="addTodo" />
     </view>

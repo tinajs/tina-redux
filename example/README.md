@@ -7,7 +7,7 @@ npm start
 ```
 
 ## Screenshot
-![](./screenshot.png)
+![](./screenshot.jpg)
 
 ## License
 MIT &copy; yelo
