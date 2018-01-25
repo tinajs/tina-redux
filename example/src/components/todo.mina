@@ -1,0 +1,51 @@
+<config>
+{
+  "component": true
+}
+</config>
+
+<template>
+  <view class="item {{ todo.completed ? 'done' : '' }}" bindtap="toggleTodo">
+    {{ todo.text }}
+  </view>
+</template>
+
+<script>
+import { Component } from '@tinajs/tina'
+import { toggleTodo } from '../actions'
+import store from '../store'
+
+function mapState (state) {
+  return {}
+}
+function mapDispatch (dispatch) {
+  return {
+    toggleTodo () {
+      dispatch(toggleTodo(this.data.todo.id))
+    },
+  }
+}
+
+Component.define({
+  mixins: [store.connect(mapState, mapDispatch)],
+  properties: {
+    todo: Object,
+  },
+})
+</script>
+
+<style lang="less">
+.item {
+  padding: 1em;
+  line-height: 1.5em;
+  border-bottom: 1px solid #ccc;
+  &:active {
+    background-color: #f2f2f2;
+    color: #999;
+  }
+  &.done {
+    color: #ccc;
+    text-decoration: line-through;
+  }
+}
+</style>
