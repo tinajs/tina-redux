@@ -11,7 +11,8 @@ npm i --save @tinajs/tina-redux
 ```
 
 ## Example
-[See ./example](example/README.md)
+- [Basic](example/readme.md)
+- [Using with Immutable.js](https://github.com/tinajs/tina-examples/blob/master/packages/todomvc-lite-redux-immutable)
 
 ## License
 MIT &copy; [yelo](https://github.com/tinajs), 2017 - present
