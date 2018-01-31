@@ -10,6 +10,9 @@
 npm i --save @tinajs/tina-redux
 ```
 
+## Guide
+See [Redux - 状态管理 - Tina.js](http://localhost:3000/#/guide/state-management?id=redux)。
+
 ## Example
 - [Basic](example/readme.md)
 - [Using with Immutable.js](https://github.com/tinajs/tina-examples/blob/master/packages/todomvc-lite-redux-immutable)
