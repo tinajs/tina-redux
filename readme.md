@@ -17,5 +17,12 @@ See [Redux - 状态管理 - Tina.js](http://localhost:3000/#/guide/state-managem
 - [Basic](example/readme.md)
 - [Using with Immutable.js](https://github.com/tinajs/tina-examples/blob/master/packages/todomvc-lite-redux-immutable)
 
+
+## Related Projects
+- [Tina.js](https://github.com/tinajs/tina)
+- [Redux](https://redux.js.org/)
+- [tina-immutable](https://github.com/tinajs/tina-immutable)
+- [xixilive/redux-weapp](https://github.com/xixilive/redux-weapp)
+
 ## License
 MIT &copy; [yelo](https://github.com/tinajs), 2017 - present
