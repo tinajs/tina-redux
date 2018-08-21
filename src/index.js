@@ -14,14 +14,14 @@ class TinaRedux {
       }
     }
 
-    function onLoad () {
+    function install () {
       if (typeof mapState === 'function') {
         unsubscribe = reduxStore.subscribe(update.bind(this))
         update.call(this)
       }
     }
 
-    function onUnload () {
+    function uninstall () {
       if (typeof unsubscribe === 'function') {
         unsubscribe()
         unsubscribe = null
@@ -29,8 +29,10 @@ class TinaRedux {
     }
 
     return {
-      onLoad,
-      onUnload,
+      onLoad: install,
+      onUnload: uninstall,
+      attached: install,
+      detached: uninstall,
       methods: Object.assign(mapDispatch(reduxStore.dispatch), {
         $dispatch: reduxStore.dispatch,
       }),
