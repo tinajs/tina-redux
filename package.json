@@ -1,6 +1,6 @@
 {
   "name": "@tinajs/tina-redux",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tina.js bindings for Redux",
   "main": "dist/tina-redux.js",
   "author": "yelo",
