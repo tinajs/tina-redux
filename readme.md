@@ -11,7 +11,7 @@ npm i --save @tinajs/tina-redux
 ```
 
 ## Guide
-See [Redux - 状态管理 - Tina.js](http://localhost:3000/#/guide/state-management?id=redux)。
+See [Redux - 状态管理 - Tina.js](https://tina.js.org/#/guide/state-management?id=redux)。
 
 ## Example
 - [Basic](example/readme.md)
